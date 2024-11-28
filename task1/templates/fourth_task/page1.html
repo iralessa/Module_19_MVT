@@ -1,0 +1,38 @@
+{% extends 'fourth_task/menu.html' %}
+{% block pagename %}Магазин{% endblock %}
+
+{% block content %}
+<style>
+    .game-list-item {
+        font-size: 24px; /* Увеличиваем размер текста игры */
+        padding: 10px;   /* Добавляем отступы */
+        border-bottom: 1px solid #ccc; /* Добавляем разделитель между играми */
+    }
+
+    .buy-button {
+    display: inline-block;
+    padding: 10px 20px; /* Увеличиваем отступы */
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    background-color: #007bff; /* Цвет фона */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+    }
+
+    .buy-button:hover {
+        background-color: #0056b3; /* Цвет при наведении */
+    }
+</style>
+
+<ul>
+    {% for game in games %}
+        <li class="game-list-item">
+            {{ game.title }} | {{ game.description }} | Стоимость: {{ game.cost }} USD.
+            <button class="buy-button">Купить</button>
+        </li>
+    {% empty %}
+        <li class="game-list-item">В магазине нет доступных игр.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

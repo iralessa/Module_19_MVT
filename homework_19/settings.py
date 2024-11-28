@@ -56,8 +56,10 @@ ROOT_URLCONF = 'homework_19.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            BASE_DIR / 'templates',  # Это для глобальных шаблонов
+        ],
+        'APP_DIRS': True,  # Включите это, чтобы Django искал шаблоны в директориях приложений
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

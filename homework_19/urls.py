@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from task1 import views  # Импортируем ваши views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),  # Главная страница
+    path('page1/', views.shop, name='shop'),  # Страница магазина (page1)
+    path('page2/', views.cart, name='cart'),  # Страница корзины (page2)
+    path('registration/', views.registration_page, name='registration'),  # Страница регистрации
+    path('sign_up_by_html/', views.sign_up_by_html, name='sign_up_by_html'),  # Регистрация с Django формой
+    #path('sign-up-html/', views.sign_up_by_html, name='sign_up_html'),  # Регистрация с HTML формой
 ]
